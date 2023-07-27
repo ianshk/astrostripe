@@ -12,7 +12,7 @@ type Props = {
 }
 
 export default function Button({ product }: Props) {
-  async function HandleClick() {
+  const handleClick = async () => {
     const response = await fetch('/api/checkout', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -25,9 +25,10 @@ export default function Button({ product }: Props) {
       window.location.href = data.url
     }
   }
+
   return (
     <button
-      onClick={HandleClick}
+      onClick={handleClick}
       class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
       type="submit">
       Buy
